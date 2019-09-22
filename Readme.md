@@ -2,12 +2,14 @@
 随着业务的积累，产品的迭代，我们写的工程会越来越大，也越来越臃肿，更加难以维护，那有没有一种方法，能够使得每个人专门负责自己的业务模块，使用的时候把每个人做的模块直接拼装组合起来就行，这样代码也更加灵活，相互之间的耦合性也更低，重用性也能够更大。那么模块化的概念就来了。
 
 [可以关注我的csdn](https://blog.csdn.net/u010302765)
+
 [稀土掘金](https://juejin.im/post/5d8732b8f265da03eb1406b6)
 
 
 **简单来说, 模块化就是将一个程序按照其功能做拆分，分成相互独立的模块，以便于每个模块只包含与其功能相关的内容。模块我们相对熟悉,比如登录功能可以是一个模块, 搜索功能可以是一个模块, 汽车的发送机也可是一个模块。**
 
 当然从个人的理解上，模块化只是一种思想，就是大化小，分开治理，在实际项目中如何具体实施，目前有两种方案，一个是组件化，一个是插件化
+
 <img src="https://img-blog.csdnimg.cn/20190919135524870.png" width="500" hegiht="100" align=center />  
 在网上找到了一张很形象的图
 
@@ -90,6 +92,7 @@ implementation project(path: ':personalcenter')
 implementation project(path: ':shoppingcar')
 ```
 编译一下就是这样
+
 <img src="https://img-blog.csdnimg.cn/20190919160838876.png" width="260" hegiht="100" align=center />  
 
 4.当然还差一步，设置AndroidManifest.xml文件，因为一般来说，一个APP只有一个启动页，在组件单独调试时也需要一个启动页，所以我们需要设置两个文件。就这样
@@ -119,6 +122,7 @@ manifest.srcFile 'src/main/AndroidManifest.xml'
 ```
 
 大功告成，使用时只需要修改根目录build.gradle文件中的那3个变量，就可以一键开启该模块的单独运行模式了，亲测有效，好了，我们已经完成了，模块独立化了，子模块可单独运行了，但是，怎么通讯，传递数据呀？组件与组件之间都是不可以直接使用类的相互引用来进行数据传递的!
+
 <img src="https://img-blog.csdnimg.cn/2019091916121357.png" width="100" hegiht="100" align=center />  
 
 <br/></br>
